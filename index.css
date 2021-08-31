@@ -1,0 +1,34 @@
+
+
+.main-div {
+    color: green;
+}
+.custom-title {
+    font-size: 100px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    background-color: gray;
+    justify-content: center;
+    align-items: center;
+}
+
+.sample-box {
+    height: 200px;
+    width: 200px;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+    height: 50px;
+}
+
+.blue {
+    background-color: blue;
+}
