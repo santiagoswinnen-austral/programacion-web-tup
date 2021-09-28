@@ -1,0 +1,93 @@
+
+body {
+    margin: 0;
+    font-family: Copperplate;
+}
+
+.custom-title {
+    font-size: 60px;
+}
+
+.main-div {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    background-color: gray;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar {
+    background-color: lightblue;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.navbar-element {
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.description {
+    font-weight: bold;
+    color: gray;
+}
+
+.contents {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 15px;
+    background-color: lightblue;
+}
+
+.row-image-desc {
+    display: flex;
+    flex-direction: row;
+}
+
+.picture {
+    height: 150px;
+    border-radius: 10px;
+}
+
+.long-desc {
+    margin-left: 10px;
+}
+
+.descriptive-text {
+    font-family: Helvetica;
+}
+
+.price {
+    color: brown;
+    font-size: 30px;
+    align-self: flex-end;
+}
+
+
+.padre {
+    background-color: gray;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 160px;
+    align-items: flex-end;
+}
+
+.card-container-custom {
+    margin-left: 24px;
+    width: 250px;
+}
+
+.all-cards {
+    display: flex;
+    flex-wrap: wrap;
+}
