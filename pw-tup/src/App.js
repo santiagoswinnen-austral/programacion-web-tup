@@ -3,63 +3,44 @@ import logo from './logo.svg';
 import './App.css';
 import {useState} from "react";
 import SubjectCard from "./components/SubjectCard";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Courses from "./components/Courses";
+import Profile from "./components/Profile";
 
 function App() {
 
-  const [filtered, setFiltered] = useState(false)
-
-  const subjects = [
-    { name: 'Matemática', approved: 12} ,
-    { name: 'Programación Web', approved: 12} ,
-    { name: 'Algoritmos', approved: 8}
-  ]
-
-  const clickFunction = () => {
-    setFiltered(!filtered)
-  }
-
-  const getName = () => {
-    return filtered ? "Dejar de filtrar" : "Filtrar"
-  }
-
-  let finalSubjects;
-
-  if (filtered) {
-    finalSubjects = subjects.filter((subject) => {
-      return subject.approved > 10
-    })
-  } else {
-    finalSubjects = subjects
-  }
-
   return (
-    <div className='general'>
-      <div className="navbar">
-        <h4 className="navbar-element">Inicio</h4>
-        <h4 className="navbar-element">Mi Perfil</h4>
-        <h4 className="navbar-element">Mis Cursos</h4>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/courses">Cursos</Link>
+            </li>
+            <li>
+              <Link to="/profile">Perfil</Link>
+            </li>
+          </ul>
+        </nav>
+
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/courses">
+            <Courses />
+          </Route>
+          <Route path="/profile">
+            <Profile />
+          </Route>
+        </Switch>
       </div>
-      <div className="main-div">
-        <h1 className="custom-title">Programación Web</h1>
-        <p className="description">Curso de programación Web de un cautrimestre de duración</p>
-      </div>
-      <div className="main-div">
-        <button className="btn btn-primary" onClick={clickFunction}>
-          {getName()}
-        </button>
-      </div>
-      <div className="all-cards">
-        {
-          finalSubjects
-            .map((mapSubject) => {
-            return (
-              <SubjectCard subject={mapSubject}/>
-            )
-          })
-        }
-      </div>
-    </div>
-  );
+    </Router>
+  )
 }
 
 export default App;
