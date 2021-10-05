@@ -1,9 +1,8 @@
 import pgimg from "../images/programacion.jpeg";
+import {Link} from "react-router-dom";
 
 
 function SubjectCard ({subject}) {
-
-
 
   return (
     <div className="card-container-custom">
@@ -15,7 +14,7 @@ function SubjectCard ({subject}) {
             En este curso se verán diversos temas vinculados con la programación web, como por ejemplo JavaScript,
             CSS, React, Django y algunos otros conceptos avanzados.
           </p>
-          <a href="#" className="btn btn-primary">Comprar</a>
+          <Link to={'/courses/detail'}><a className="btn btn-primary">Ver más</a></Link>
         </div>
       </div>
     </div>

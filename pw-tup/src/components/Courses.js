@@ -30,14 +30,8 @@ const Courses = () => {
   }
 
   return (<div className='general'>
-    <div className="navbar">
-      <h4 className="navbar-element">Inicio</h4>
-      <h4 className="navbar-element">Mi Perfil</h4>
-      <h4 className="navbar-element">Mis Cursos</h4>
-    </div>
     <div className="main-div">
-      <h1 className="custom-title">Programación Web</h1>
-      <p className="description">Curso de programación Web de un cautrimestre de duración</p>
+      <h1 className="custom-title">Todos los cursos</h1>
     </div>
     <div className="main-div">
       <button className="btn btn-primary" onClick={clickFunction}>

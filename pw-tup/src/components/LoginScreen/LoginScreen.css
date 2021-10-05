@@ -1,0 +1,29 @@
+
+.login-screen {
+    display: flex;
+    align-items: center;
+    padding: 40px 80px 40px 40px ;
+    background-color: darkslategray;
+    height: 1000px;
+    justify-content: space-between;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    height: 250px;
+}
+
+.button-container {
+    align-self: flex-end;
+}
+
+.welcome-text-container {
+    background-color: darkgrey;
+    padding: 10px;
+    border-radius: 10px;
+}

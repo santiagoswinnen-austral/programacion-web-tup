@@ -1,0 +1,13 @@
+
+.navbar {
+    background-color: lightblue;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.navbar-element {
+    margin-left: 20px;
+    margin-right: 10px;
+}

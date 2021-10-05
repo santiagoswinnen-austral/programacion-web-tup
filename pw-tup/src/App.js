@@ -1,41 +1,42 @@
-import logo from './logo.svg';
 
 import './App.css';
-import {useState} from "react";
-import SubjectCard from "./components/SubjectCard";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import Courses from "./components/Courses";
 import Profile from "./components/Profile";
+import Navbar from "./components/Navbar/Navbar";
+import LoginScreen from "./components/LoginScreen/LoginScreen";
+import CourseDetail from "./components/CourseDetail/CourseDetail";
+import AuthRoute from "./components/AuthRoute";
 
 function App() {
 
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/courses">Cursos</Link>
-            </li>
-            <li>
-              <Link to="/profile">Perfil</Link>
-            </li>
-          </ul>
-        </nav>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/courses">
-            <Courses />
-          </Route>
-          <Route path="/profile">
+          <AuthRoute exact={true} path={`/profile`}>
             <Profile />
+          </AuthRoute>
+          <Route exact={true} path="/login">
+            <LoginScreen />
+          </Route>
+          <Route path="/">
+            <Navbar />
+            <Route exact={true} path={`/courses`}>
+              <Courses />
+            </Route>
+            <AuthRoute exact={true} path={`/courses/detail`}>
+              <CourseDetail
+                name={'Curso de prueba'}
+                description={'En este curso se verán diversos temas vinculados con la programación web, como por ejemplo JavaScript,\n' +
+                'CSS, React, Django y algunos otros conceptos avanzados.'}
+                // hours={150}
+              />
+            </AuthRoute>
           </Route>
         </Switch>
       </div>
