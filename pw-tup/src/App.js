@@ -29,14 +29,12 @@ function App() {
             <Route exact={true} path={`/courses`}>
               <Courses />
             </Route>
-            <AuthRoute exact={true} path={`/courses/detail`}>
-              <CourseDetail
-                name={'Curso de prueba'}
-                description={'En este curso se verán diversos temas vinculados con la programación web, como por ejemplo JavaScript,\n' +
-                'CSS, React, Django y algunos otros conceptos avanzados.'}
-                // hours={150}
-              />
-            </AuthRoute>
+            <Route exact={true} path={`/courses/detail/:id`}>
+              <CourseDetail/>
+            </Route>
+            <Route path="*">
+              <div><h1>404</h1></div>
+            </Route>
           </Route>
         </Switch>
       </div>

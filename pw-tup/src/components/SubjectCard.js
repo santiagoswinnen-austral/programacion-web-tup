@@ -14,7 +14,7 @@ function SubjectCard ({subject}) {
             En este curso se verán diversos temas vinculados con la programación web, como por ejemplo JavaScript,
             CSS, React, Django y algunos otros conceptos avanzados.
           </p>
-          <Link to={'/courses/detail'}><a className="btn btn-primary">Ver más</a></Link>
+          <Link to={`/courses/detail/${subject.name}`}><a className="btn btn-primary">Ver más</a></Link>
         </div>
       </div>
     </div>
