@@ -9,6 +9,7 @@ verify_ssl = true
 django = "*"
 djangorestframework = "*"
 drf-yasg = "*"
+djangorestframework-simplejwt = "*"
 
 [requires]
 python_version = "3.9"
