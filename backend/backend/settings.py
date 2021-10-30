@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework',
     'rest_framework_simplejwt',
     'drf_yasg',
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -143,3 +145,14 @@ SWAGGER_SETTINGS = {
         }
     }
 }
+
+# aca lo normal seria poner la lista de url's de front end apps que queremos dejar que le hagan requests a este backend
+# por ej: http://localhost:3000
+#
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+]
+
+# dejar esta setting en True permite que cualquier front end app pueda hacer requests a este backend gnorando
+# la setting de arriba, lo seguro seria dejar esta setting en False y completar la lista de url's en esa setting
+CORS_ALLOW_ALL_ORIGINS = True
