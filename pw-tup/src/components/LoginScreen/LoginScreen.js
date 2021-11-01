@@ -17,7 +17,7 @@ const LoginScreen = () => {
           <input type="password" className="form-control" id="exampleFormControlInput1" placeholder="Password" />
         </div>
         <div className={'button-container'}>
-          <Link to={"/courses"}><button type="button" className="btn btn-primary">Login</button></Link>
+          <Link to={"/main/courses"}><button type="button" className="btn btn-primary">Login</button></Link>
         </div>
       </div>
     </div>

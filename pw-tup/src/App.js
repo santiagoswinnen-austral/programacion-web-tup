@@ -24,17 +24,17 @@ function App() {
           <Route exact={true} path="/login">
             <LoginScreen />
           </Route>
-          <Route path="/">
+          <Route path="/main">
             <Navbar />
-            <Route exact={true} path={`/courses`}>
+            <Route exact={true} path={`/main/courses`}>
               <Courses />
             </Route>
-            <Route exact={true} path={`/courses/detail/:id`}>
+            <Route exact={true} path={`/main/courses/detail/:id`}>
               <CourseDetail/>
             </Route>
-            <Route path="*">
-              <div><h1>404</h1></div>
-            </Route>
+          </Route>
+          <Route path="*">
+            <div><h1>404</h1></div>
           </Route>
         </Switch>
       </div>
