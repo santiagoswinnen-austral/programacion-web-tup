@@ -26,6 +26,9 @@ function App() {
           </Route>
           <Route path="/main">
             <Navbar />
+            <AuthRoute exact={true} path={`/main/profile`}>
+              <Profile />
+            </AuthRoute>
             <Route exact={true} path={`/main/courses`}>
               <Courses />
             </Route>
