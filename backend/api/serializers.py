@@ -1,13 +1,39 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
+from rest_framework.exceptions import ValidationError
 
-from api.models import Course
+from api.models import Course, ExtendedUser, Activity
 
 
-class CourseSerializer(serializers.ModelSerializer):
+class ActivityCourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
         fields = "__all__"
+
+
+class ActivitySerializer(serializers.ModelSerializer):
+    course = ActivityCourseSerializer()
+
+    class Meta:
+        model = Activity
+        fields = "__all__"
+
+
+class CourseSerializer(serializers.ModelSerializer):
+    activities = ActivitySerializer(many=True, read_only=True)
+    custom_field = serializers.SerializerMethodField(read_only=True)
+
+    class Meta:
+        model = Course
+        fields = "__all__"
+
+    def validate_name(self, name):
+        if name == 'name not valid':
+            raise ValidationError("name is not valid")
+        return name
+
+    def get_custom_field(self, course):
+        return course.activities.count()
 
 
 class RegisterSerializer(serializers.ModelSerializer):
@@ -22,6 +48,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             username=validated_data['username'],
             password=validated_data['password'],
         )
+        ExtendedUser.objects.create(user=user)
         return user
 
 
