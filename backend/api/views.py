@@ -43,7 +43,9 @@ class ActivityViewSet(viewsets.ModelViewSet):
     queryset = Activity.objects.all()
 
     def get_queryset(self):
-        queryset = self.queryset
+        # sin el .all() el queryset devuelve siempre lo mismo (no se vuelve a ejecutar la query en la base de datos)
+        # con el .all() hacemos que se reevalue en cada request, asi devuelve un resultado actualizado
+        queryset = self.queryset.all()
         name = self.request.query_params.get('name')
         course_name = self.request.query_params.get('course_name')
         if name is not None:
